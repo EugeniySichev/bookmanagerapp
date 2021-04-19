@@ -3,7 +3,7 @@ export interface Book {
   name: string;
   email: string;
   genre: string;
-  pageNunber: string;
+  pageNumber: string;
   imageUrl: string;
   bookText: string;
 }

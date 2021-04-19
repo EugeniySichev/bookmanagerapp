@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-// import { Book } from '';
-
+import { Book } from './book';
 import { BookService } from './book.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
-import { Book } from './book';
 
 @Component({
   selector: 'app-root',
@@ -12,22 +10,21 @@ import { Book } from './book';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  [x: string]: any;
-  public Books: Book[];
+  public books: Book[];
   public editBook: Book;
   public deleteBook: Book;
 
-  constructor(private BookService: BookService){}
+  constructor(private bookService: BookService){}
 
   ngOnInit() {
     this.getBooks();
   }
 
   public getBooks(): void {
-    this.BookService.getBooks().subscribe(
+    this.bookService.getBooks().subscribe(
       (response: Book[]) => {
-        this.Books = response;
-        console.log(this.Books);
+        this.books = response;
+        console.log(this.books);
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -35,9 +32,9 @@ export class AppComponent implements OnInit {
     );
   }
 
-  public onAddBook(addForm: NgForm): void {
-    document.getElementById('add-Book-form').click();
-    this.BookService.addBook(addForm.value).subscribe(
+  public onAddEmloyee(addForm: NgForm): void {
+    document.getElementById('add-book-form').click();
+    this.bookService.addBook(addForm.value).subscribe(
       (response: Book) => {
         console.log(response);
         this.getBooks();
@@ -50,8 +47,8 @@ export class AppComponent implements OnInit {
     );
   }
 
-  public onUpdateBook(Book: Book): void {
-    this.BookService.updateBook(Book).subscribe(
+  public onUpdateEmloyee(book: Book): void {
+    this.bookService.updateBook(book).subscribe(
       (response: Book) => {
         console.log(response);
         this.getBooks();
@@ -62,8 +59,8 @@ export class AppComponent implements OnInit {
     );
   }
 
-  public onDeleteBook(BookId: number): void {
-    this.BookService.deleteBook(BookId).subscribe(
+  public onDeleteEmloyee(bookId: number): void {
+    this.bookService.deleteBook(bookId).subscribe(
       (response: void) => {
         console.log(response);
         this.getBooks();
@@ -77,22 +74,21 @@ export class AppComponent implements OnInit {
   public searchBooks(key: string): void {
     console.log(key);
     const results: Book[] = [];
-    for (const Book of this.Books) {
-      if (Book.name.toLowerCase().indexOf(key.toLowerCase()) !== -1
-      || Book.email.toLowerCase().indexOf(key.toLowerCase()) !== -1
-      || Book.genre.toLowerCase().indexOf(key.toLowerCase()) !== -1
-      // || Book.pageNunber.toLowerCase().indexOf(key.toLowerCase()) !== -1) 
-      ){
-        results.push(Book);
+    for (const book of this.books) {
+      if (book.name.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || book.email.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || book.pageNumber.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || book.genre.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+        results.push(book);
       }
     }
-    this.Books = results;
+    this.books = results;
     if (results.length === 0 || !key) {
       this.getBooks();
     }
   }
 
-  public onOpenModal(Book: Book, mode: string): void {
+  public onOpenModal(book: Book, mode: string): void {
     const container = document.getElementById('main-container');
     const button = document.createElement('button');
     button.type = 'button';
@@ -102,11 +98,11 @@ export class AppComponent implements OnInit {
       button.setAttribute('data-target', '#addBookModal');
     }
     if (mode === 'edit') {
-      this.editBook = Book;
+      this.editBook = book;
       button.setAttribute('data-target', '#updateBookModal');
     }
     if (mode === 'delete') {
-      this.deleteBook = Book;
+      this.deleteBook = book;
       button.setAttribute('data-target', '#deleteBookModal');
     }
     container.appendChild(button);
