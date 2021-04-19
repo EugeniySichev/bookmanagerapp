@@ -80,8 +80,9 @@ export class AppComponent implements OnInit {
     for (const Book of this.Books) {
       if (Book.name.toLowerCase().indexOf(key.toLowerCase()) !== -1
       || Book.email.toLowerCase().indexOf(key.toLowerCase()) !== -1
-      || Book.phone.toLowerCase().indexOf(key.toLowerCase()) !== -1
-      || Book.jobTitle.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+      || Book.genre.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      // || Book.pageNunber.toLowerCase().indexOf(key.toLowerCase()) !== -1) 
+      ){
         results.push(Book);
       }
     }

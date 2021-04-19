@@ -25,12 +25,12 @@
            </div>
            <div class="col-6 card-title align-self-center mb-0">
               <h5>{{Book?.name}}</h5>
-              <p class="m-0">{{Book?.jobTitle}}</p>
+              <p class="m-0">{{Book?.pageNunber}}</p>
            </div>
         </div>
         <ul class="list-group list-group-flush">
            <li class="list-group-item"><i class="fa fa-envelope float-right"></i>{{Book?.email}}</li>
-           <li class="list-group-item"><i class="fa fa-phone float-right"></i>Phone : {{Book?.phone}}</li>
+           <li class="list-group-item"><i class="fa fa-genre float-right"></i>genre : {{Book?.genre}}</li>
         </ul>
         <div class="card-body">
            <div class="float-right btn-group btn-group-sm">
@@ -63,15 +63,15 @@
              <input type="email" ngModel name="email" class="form-control" id="email" placeholder="Email" required>
           </div>
           <div class="form-group">
-             <label for="phone">Job title</label>
-             <input type="text" ngModel name="jobTitle" class="form-control" id="jobTile" placeholder="Job title" required>
+             <label for="genre">Job title</label>
+             <input type="text" ngModel name="pageNunber" class="form-control" id="jobTile" placeholder="Job title" required>
           </div>
           <div class="form-group">
-             <label for="phone">Phone</label>
-             <input type="text" ngModel name="phone" class="form-control" id="phone" placeholder="Phone" required>
+             <label for="genre">genre</label>
+             <input type="text" ngModel name="genre" class="form-control" id="genre" placeholder="genre" required>
           </div>
           <div class="form-group">
-             <label for="phone">Image URL</label>
+             <label for="genre">Image URL</label>
              <input type="text" ngModel name="imageUrl" class="form-control" id="imageUrl" placeholder="Image URL" required>
           </div>
           <div class="modal-footer">
@@ -101,21 +101,21 @@
                  <input type="text" ngModel="{{editBook?.name}}" name="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Name">
               </div>
               <input type="hidden" ngModel="{{editBook?.id}}" name="id" class="form-control" id="id" placeholder="Email">
-              <input type="hidden" ngModel="{{editBook?.BookCode}}" name="userCode" class="form-control" id="userCode" placeholder="Email">
+              <input type="hidden" ngModel="{{editBook?.bookText}}" name="userCode" class="form-control" id="userCode" placeholder="Email">
               <div class="form-group">
                  <label for="email">Email Address</label>
                  <input type="email" ngModel="{{editBook?.email}}" name="email" class="form-control" id="email" placeholder="Email">
               </div>
               <div class="form-group">
-                 <label for="phone">Job title</label>
-                 <input type="text" ngModel="{{editBook?.jobTitle}}" name="jobTitle" class="form-control" id="jobTitle" placeholder="Job title">
+                 <label for="genre">Job title</label>
+                 <input type="text" ngModel="{{editBook?.pageNunber}}" name="pageNunber" class="form-control" id="pageNunber" placeholder="Job title">
               </div>
               <div class="form-group">
-                 <label for="phone">Phone</label>
-                 <input type="text" ngModel="{{editBook?.phone}}" name="phone" class="form-control" id="phone" name="phone" placeholder="Phone">
+                 <label for="genre">genre</label>
+                 <input type="text" ngModel="{{editBook?.genre}}" name="genre" class="form-control" id="genre" name="genre" placeholder="genre">
               </div>
               <div class="form-group">
-                 <label for="phone">Image URL</label>
+                 <label for="genre">Image URL</label>
                  <input type="text" ngModel="{{editBook?.imageUrl}}" name="imageUrl" class="form-control" id="imageUrl" placeholder="Image URL">
               </div>
               <div class="modal-footer">

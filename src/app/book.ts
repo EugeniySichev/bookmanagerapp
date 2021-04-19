@@ -2,8 +2,8 @@ export interface Book {
   id: number;
   name: string;
   email: string;
-  jobTitle: string;
-  phone: string;
+  genre: string;
+  pageNunber: string;
   imageUrl: string;
-  BookCode: string;
+  bookText: string;
 }
