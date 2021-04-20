@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
     );
   }
 
-  public onAddEmloyee(addForm: NgForm): void {
+  public onAddBook(addForm: NgForm): void {
     document.getElementById('add-book-form').click();
     this.bookService.addBook(addForm.value).subscribe(
       (response: Book) => {
@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
     );
   }
 
-  public onUpdateEmloyee(book: Book): void {
+  public onUpdateBook(book: Book): void {
     this.bookService.updateBook(book).subscribe(
       (response: Book) => {
         console.log(response);
@@ -59,7 +59,7 @@ export class AppComponent implements OnInit {
     );
   }
 
-  public onDeleteEmloyee(bookId: number): void {
+  public onDeleteBook(bookId: number): void {
     this.bookService.deleteBook(bookId).subscribe(
       (response: void) => {
         console.log(response);
